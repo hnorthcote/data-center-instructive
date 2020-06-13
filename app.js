@@ -1,20 +1,46 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const express = require('express');
+const morgan = require('morgan');
+const session = require('express-session');
+const port = process.env.PORT || '3000';
+require('dotenv').config();
 
-var app = express();
+const indexRouter = require('./routes/index');
+const projectsRouter = require('./routes/projects');
+const usersRouter = require('./routes/users');
+const passport = require('passport');
+// const passport = require('passport');
+// const methodOverride = require('method-override');
+// require('dotenv').config();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+const app = express();
+
+require('./config/database');
+require('./config/passport');
+
+app.set('view engine', 'ejs');
+
+
+app.use(morgan('dev'));
+app.use(express.static('public'));
+app.use(express.urlencoded( { extended: true}));
+app.use(session({
+    secret: 'NoSecretsAllowed!!',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/', indexRouter);
+app.use('/new', projectsRouter);
+app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
-module.exports = app;
+
+//tell app to listen
+
+app.listen(port, function(){
+    console.log(`Express is listening on port:${port}`);
+});

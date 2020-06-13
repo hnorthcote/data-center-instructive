@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<div class="details"><h2>Project details</h2>
+
+    <form id="start-info"action="/users" method="POST">
+        <label>Company name:</label>
+        <input  type="text" name="company">
+        <label>Project deadline:</label>
+        <input type="date" name="deadline">
+        <!-- <label>Name:</label>
+        <input type="text" name="name">
+        <label>Email:</label>
+        <input type="text" name="email"> -->
+        <input type="submit" value="Create project">
+    </form>
+
+    <form id="start-info"action="/new" method="POST">
+        <label>Project name:</label>
+        <input  type="text" name="project">
+        <label>Total amount of users:</label>
+        <input type="number" name="usercount">
+        <label>Business type/vertical:
+        <select name="vertical">
+            <option value="retail">Retail</option>
+            <option value="medical">Medical</option>
+            <option value="legal">Legal</option>
+            <option value="education">Education</option>
+            <option value="government">Government</option>
+          </select></label>
+        <input type="submit" value="Create project">
+    </form>
+    
+</div>
+
+
+<%- include('../partials/footer') %>

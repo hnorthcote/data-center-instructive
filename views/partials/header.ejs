@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title %></title>
+</head>
+<body>
+<ul class="right"></ul>
+  <li>
+    <% if (user) { %>
+      <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+    <% } else { %>
+      <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+    <% } %>
+    </li>
+  </ul>
+  <main>
+    <h1><%= title %></h1>
