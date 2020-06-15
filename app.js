@@ -8,10 +8,9 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
-const passport = require('passport');
-// const passport = require('passport');
-// const methodOverride = require('method-override');
-// require('dotenv').config();
+const passport = require('passport');;
+const methodOverride = require('method-override');
+
 
 
 const app = express();
@@ -21,6 +20,8 @@ require('./config/passport');
 
 app.set('view engine', 'ejs');
 
+app.use(express.json());
+app.use(methodOverride('_method'));
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
@@ -44,3 +45,4 @@ app.use('/users', usersRouter);
 app.listen(port, function(){
     console.log(`Express is listening on port:${port}`);
 });
+

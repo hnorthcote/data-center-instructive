@@ -4,12 +4,13 @@ const User = require('../models/user');
 module.exports = {
   show,
   new: newProject,
+  create,
 };
 
 
 function show(req, res) {
   Project.findById(req.params.id, function(err, project) {
-    res.render('projects/show', { title: 'Project recommendations', project });
+    res.render('projects/show', { title: project.name, project });
   });
 }
 
@@ -23,6 +24,13 @@ function newProject(req, res, next) {
     title: 'New Project' });
 })
 };
+
+function create(req, res) {
+  Project.create(req.body, function(err, project){
+    if(err) {console.log(err);}
+
+  })
+}
 
 
 

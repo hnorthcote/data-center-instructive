@@ -1,2 +1,85 @@
 <%- include('../partials/header') %>
+<% let swCost, hwCost; %>
+<section>
+<h3>Base Recommended Software</h3>
+<table>
+    <thead>
+      <tr>
+        <th>Software name</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% project.software.forEach(function(software) { %>
+        <% swCost += software.cost ; return swCost;%>
+        <tr>
+          <td><%= software.name%></td>
+          <td><%= software.cost %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</section>
+<section>
+    <h3>Base Recommended Hardware</h3>
+    <table>
+        <thead>
+          <tr>
+            <th>Hardware name</th>
+            <th>Hardware type</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% project.hardware.forEach(function(hardware) { %>
+            <% hwCost += hardware.cost ; return hwCost;%>
+            <tr>
+              <td><%= hardware.name%></td>
+              <td><%= hardware.type%></td>
+              <td><%= hardware.cost %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </section>
+    <section>
+        <h3>Base Total Cost</h3>
+        <%= swCost + hwCost %>
+            <div>Software Total Cost: </div>
+            <div><%= swCost %></div>
+            <div>Hardware Total Cost: </div>
+            <div><%= hwCost %></div>
+            <div>Estimated Total Cost: </div>
+            <div><%= swCost + hwCost %></div>
+    </section>
+    <section>
+        <h3>Consulting Services</h3>
+        <p>This base analisys of your environment is just a basic sample of
+            our expertize on the IT world. Oru consuting services can extend 
+            this project analisys in a personalized way so you and your company
+            achieve the wanted results in the timeframe allowed. Our services can 
+            extend to and not only to:
+        </p>
+        <ul>
+            <li>Architecture</li>
+            <li>Project management</li>
+            <li>Proof of concept</li>
+            <li>Implementation</li>
+            <li>Documentation creation</li>
+            <li>Training</li>
+            <li>Maintnance services</li>
+            <li>Roadmap planning</li>
+        </ul>
+        <a href='https://www.linkedin.com/in/henry-northcote/'> Henry Northcote Consulting </a>
+    </section>
+    <section>
+        <h3>Disclaimer</h3>
+        <p>This analisys quote and assesment is based on the current industry standards for on premise 
+            solutions, the costs and amounts may differ depending on many aspects. This numbers and products are 
+            just a sample of the basic needs for the IT infrastructure and may change upon variables of your operations
+            and budget. 
+            Please contact us to give you a more personalized answer if you like to work with our services.
+        </p>
+    </section>
 
+    <%-include('../partials/footer')%>

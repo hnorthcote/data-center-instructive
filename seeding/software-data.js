@@ -1,8 +1,14 @@
-module.exports = [
-    { name: 'Quad core server 32 gigs ram', scope: 'small light', cost:1500},
-    { name: 'Six core Server 32 gig ram', scope: 'small heavy',cost:2500},
-    { name: 'Eight core server 64 gig ram', scope: 'medium', cost:4000},
-    { name: 'Twelve core server 128 gigs ram', scope:'large', cost:6000},
-    { name: 'Sixteen core server 128 gigs ram', scope: 'enterprise', cost:8000}
-];
 
+module.exports = [
+    { name: "MS server 2019 Essentials",  cost: 500},
+    { name: "MS server 2019 Standard", cost: 1000},
+    { name: "MS server 2019 DataCenter",  cost: 6155},
+    { name: "Epic EHR", cost: 14400},
+    { name: "Oracle NetSuit", cost: 12000},
+    { name: "QuickBooks",  cost: 500},
+    { name: "QuickBooks POS", cost: 960},
+    { name: "MS Office",  cost: 6155},
+    { name: "Onit ELM", cost: 1200},
+    { name: "eTrainCenter", cost: 1000},
+    { name: "eWorkOrders CMMS", cost: 1000},
+];

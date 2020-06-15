@@ -17,7 +17,8 @@ const projectSchema = new Schema({
   market: {type: String, required:true},
   software: [{type: Schema.Types.ObjectId, ref: "software"}] ,
   hardware: [{type: Schema.Types.ObjectId, ref: "hardware"}],
-  cost: {type: Number, required:true, min:1 },
+  cost: {type: Number, min:1 },
+  owner: [{type: Schema.Types.ObjectId, ref: "user" }],
   comments: [commentSchema],
 }, { timestamps: true });
 
