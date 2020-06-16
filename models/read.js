@@ -10,7 +10,7 @@ const scaleSchema = new Schema({
 
 const softwareSchema = new Schema({
   name: {type: String},
-  scope: [scaleSchema],
+  scope: {type: String},
   cost: {type :Number}
 }, { timestamps: true });
 
@@ -18,6 +18,7 @@ const hardwareSchema = new Schema({
   name: { type: String },
   scale: { type: String, default: "small" }, 
   type: {type: String, default: "server"},
+  cost: {type: Number},
   load: {type: Number}
 }, {
   timestamps: true
