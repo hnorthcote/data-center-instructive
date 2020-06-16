@@ -36,6 +36,7 @@ function newProject(req, res, next) {
 function create(req, res) {
   console.log(req.user);
   req.body.owner =req.user._id;  
+  console.log(req.body.market);
   marketSelected = req.body.market;
   setSoftware(); setHardware();
   req.body.software = marketSoftware;
@@ -45,19 +46,22 @@ function create(req, res) {
     res.redirect('/');})
   }
 
- function setSoftware() {
-  Market.find({marketSelected}, function(err, market){
-    marketSoftware = market.softwareList;})}
+ async function setSoftware() {
+   console.log(`Set software started! the selected market is ${marketSelected}`);
+  const oneMarket = await Market.find({market: marketSelected}, function(err, oneMarket){
+    console.log("Found the selected market:" + oneMarket);
+    marketSoftware = oneMarket.softwareList;})}
 
   function setHardware() {
     markeSoftware.forEach(function(hardware){
+      console.log(`This is each of the marketSoftware elements ${hardware}`);
       let setScale = hardware.scope;
       Hardware.find({type:"server", scale: setScale}, function(err, hdw) {
         if (err) {console.log(err);}
       marketHardware.push(hdw);
     })
   })}
-//first find the software in the software list by itirating
+//first find the software in the software list by itirating thru the market software list
 //then search for each software name and get the "scope" value
 //grab the scope value and search for the server "scale" of the same value
 //store the server "name" value on the setHardware array
