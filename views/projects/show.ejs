@@ -1,20 +1,16 @@
 <%- include('../partials/header') %>
-<% let swCost, hwCost; %>
 <section>
 <h3>Base Recommended Software</h3>
 <table>
     <thead>
       <tr>
         <th>Software name</th>
-        <th>Cost</th>
       </tr>
     </thead>
     <tbody>
-      <% project.software.forEach(function(software) { %>
-        <% swCost += software.cost ; return swCost;%>
+      <% project.environment.software.forEach(function(software) { %>
         <tr>
-          <td><%= software.name%></td>
-          <td><%= software.cost %></td>
+          <td><%= software %></td>
         </tr>
       <% }); %>
     </tbody>
@@ -26,17 +22,12 @@
         <thead>
           <tr>
             <th>Hardware name</th>
-            <th>Hardware type</th>
-            <th>Cost</th>
           </tr>
         </thead>
         <tbody>
-          <% project.hardware.forEach(function(hardware) { %>
-            <% hwCost += hardware.cost ; return hwCost;%>
+          <% project.environment.hardware.forEach(function(hardware) { %>
             <tr>
-              <td><%= hardware.name%></td>
-              <td><%= hardware.type%></td>
-              <td><%= hardware.cost %></td>
+              <td><%= hardware%></td>
             </tr>
           <% }); %>
         </tbody>
@@ -44,13 +35,12 @@
     </section>
     <section>
         <h3>Base Total Cost</h3>
-        <%= swCost + hwCost %>
             <div>Software Total Cost: </div>
-            <div><%= swCost %></div>
+            <div><%= project.environment.softwareCost %></div>
             <div>Hardware Total Cost: </div>
-            <div><%= hwCost %></div>
+            <div><%= project.environment.hardwareCost %></div>
             <div>Estimated Total Cost: </div>
-            <div><%= swCost + hwCost %></div>
+            <div><%= project.environment.softwareCost + project.environment.hardwareCost %></div>
     </section>
     <section>
         <h3>Consulting Services</h3>

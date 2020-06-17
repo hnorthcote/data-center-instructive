@@ -1,8 +1,5 @@
 const Read = require('../models/read');
-const InitSoftware = require('../seeding/software-data');
-const InitHardware = require('../seeding/hardware-data');
-const InitMarket = require('../seeding/market-data');
-const InitScale = require('../seeding/scale-data');
+
 
 module.exports = {
     index,

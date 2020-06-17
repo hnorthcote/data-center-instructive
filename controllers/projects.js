@@ -1,10 +1,8 @@
-const Project = require('../models/project');
-const User = require('../models/user');
-const { hardware } = require('../models/read');
-const Software = require('../models/read').software;
-const Hardware = require('../models/read').hardware;
-const Market = require('../models/read').market;
 
+const User = require('../models/user');
+
+const Project = require('../models/project');
+const Environment = require('../models/read');
 
 module.exports = {
   show,
@@ -12,19 +10,21 @@ module.exports = {
   create,
 };
 
-let marketSelected;
-let marketSoftware = [];
-let marketHardware = [];
 
-function show(req, res) {
-  Project.findById(req.params.id, function(err, project) {
-    res.render('projects/show', { title: project.name, project });
-  });
-}
+ function show(req, res) {
+
+     Project.findOne({owner: req.user._id}).populate("environment").exec(function(err, project) {
+       console.log(err);
+      res.render('projects/show', {user: req.user, title: project.name, project }); 
+     })
+
+  } 
 
 
 
-function newProject(req, res, next) {
+
+
+function newProject(req, res) {
   User.find({}, function(err, users) {
   res.render('projects/new', { 
     users,
@@ -33,36 +33,16 @@ function newProject(req, res, next) {
 })
 };
 
-function create(req, res) {
+async function create(req, res) {
   console.log(req.user);
-  req.body.owner =req.user._id;  
-  console.log(req.body.market);
-  marketSelected = req.body.market;
-  setSoftware(); setHardware();
-  req.body.software = marketSoftware;
-  req.body.hardware = marketHardware;
+  req.body.owner =req.user._id;
+const environment = await Environment.findOne({name: req.body.environment})
+req.body.environment = environment._id
   Project.create(req.body, function(err, project){
-    if(err) {console.log(err); return res.render('projects/new')}
-    res.redirect('/');})
+    if(err) {console.log(err); return res.render('projects/new', { 
+      users,
+      user: req.user, 
+      title: 'New Project' });
   }
-
- async function setSoftware() {
-   console.log(`Set software started! the selected market is ${marketSelected}`);
-  const oneMarket = await Market.find({market: marketSelected}, function(err, oneMarket){
-    console.log("Found the selected market:" + oneMarket);
-    marketSoftware = oneMarket.softwareList;})}
-
-  function setHardware() {
-    markeSoftware.forEach(function(hardware){
-      console.log(`This is each of the marketSoftware elements ${hardware}`);
-      let setScale = hardware.scope;
-      Hardware.find({type:"server", scale: setScale}, function(err, hdw) {
-        if (err) {console.log(err);}
-      marketHardware.push(hdw);
-    })
-  })}
-//first find the software in the software list by itirating thru the market software list
-//then search for each software name and get the "scope" value
-//grab the scope value and search for the server "scale" of the same value
-//store the server "name" value on the setHardware array
-//store the hardware array and software array on the project software and hardware schema keys
+    console.log('created project!');res.redirect('/projects/new');})
+  }

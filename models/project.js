@@ -14,11 +14,8 @@ const projectSchema = new Schema({
   company:{type: String, required: true, default: "self"},
   deadline:{type: Date, required: true},
   userCount: {type: Number, required:true, min:10, max: 20000},
-  market: {type: String, required:true},
-  software: [{type: Schema.Types.ObjectId, ref: "software"}] ,
-  hardware: [{type: Schema.Types.ObjectId, ref: "hardware"}],
-  cost: {type: Number, min:1 },
-  owner: [{type: Schema.Types.ObjectId, ref: "user" }],
+  environment: {type: Schema.Types.ObjectId, ref:"environment", required:true}, 
+  owner: {type: Schema.Types.ObjectId, ref: "user" },
   comments: [commentSchema],
 }, { timestamps: true });
 
