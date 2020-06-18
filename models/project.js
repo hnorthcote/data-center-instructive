@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     content: { type: String, required: true },
-    user: { type: String}, 
-    creation: {type: Date, required:true},
+    creation: {type: Date},
   }, {
     timestamps: true
   });
@@ -14,10 +13,11 @@ const projectSchema = new Schema({
   company:{type: String, required: true, default: "self"},
   deadline:{type: Date, required: true},
   userCount: {type: Number, required:true, min:10, max: 20000},
-  environment: {type: Schema.Types.ObjectId, ref:"environment", required:true}, 
+  environment: {type: Schema.Types.ObjectId, ref:"Environment", required:true}, 
   owner: {type: Schema.Types.ObjectId, ref: "user" },
   comments: [commentSchema],
 }, { timestamps: true });
+
 
 
 

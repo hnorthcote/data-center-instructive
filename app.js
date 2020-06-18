@@ -8,6 +8,8 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
+const commentsRouter= require('./routes/comments');
+
 const passport = require('passport');;
 const methodOverride = require('method-override');
 
@@ -25,7 +27,7 @@ app.use(methodOverride('_method'));
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
-app.use(express.urlencoded( { extended: true}));
+app.use(express.urlencoded( { extended: false}));
 app.use(session({
     secret: 'NoSecretsAllowed!!',
     resave: false,
@@ -38,7 +40,7 @@ app.use('/', indexRouter);
 app.use('/new', projectsRouter);
 app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
-
+app.use('/', commentsRouter);
 
 //tell app to listen
 

@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<div><h2>Project details</h2>
+
+    <form action="/projects/<%= project.id %>?_method=PUT" method="POST">
+        <label>Company name:</label>
+        <input  type="text" name="company" value="<%= project.company%>">
+        <label>Project name:</label>
+        <input  type="text" name="name"  value="<%= project.name%>">
+        <label>Total amount of users:</label>
+        <input type="number" name="userCount"  value="<%= project.userCount%>">
+        <div class ="input-filed col s12">
+        <label>Business type:</label>
+        <select name="environment">
+            <option value="" disabled selected>Choose and option:</option>
+            <option value="retail">Retail</option>
+            <option value="medical">Medical</option>
+            <option value="legal">Legal</option>
+            <option value="education">Education</option>
+            <option value="government">Government</option>
+        </select></div>
+        <label>Project deadline:</label>
+        <input type="date" name="deadline"  value=<%= project.deadline%>>
+        <input type="submit" value="Update project">
+    </form>
+    
+</div>
+
+
+<%- include('../partials/footer') %>

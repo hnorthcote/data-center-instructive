@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const projectsCtrl = require('../controllers/projects');
 
-/* GET users listing. */
 router.get('/new', projectsCtrl.new);
 router.get('/show', projectsCtrl.show );
-router.post('/create', projectsCtrl.create);
+router.get('/:id/update', projectsCtrl.edit);
 
+router.post('/create', projectsCtrl.create);
+router.put('/:id', projectsCtrl.update)
 module.exports = router;

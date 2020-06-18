@@ -1,10 +1,13 @@
 <%- include('../partials/header') %>
+
+<a  class="btn-small waves-light blue white-text hoverable"  href="/projects/<%= project.id %>/update">Edit Project</a>
+
 <section>
 <h3>Base Recommended Software</h3>
 <table>
     <thead>
       <tr>
-        <th>Software name</th>
+        <th>Software</th>
       </tr>
     </thead>
     <tbody>
@@ -21,7 +24,7 @@
     <table>
         <thead>
           <tr>
-            <th>Hardware name</th>
+            <th>Hardware</th>
           </tr>
         </thead>
         <tbody>
@@ -34,14 +37,40 @@
       </table>
     </section>
     <section>
-        <h3>Base Total Cost</h3>
+        <h3>Base Estimated Total Cost</h3>
             <div>Software Total Cost: </div>
             <div><%= project.environment.softwareCost %></div>
             <div>Hardware Total Cost: </div>
             <div><%= project.environment.hardwareCost %></div>
-            <div>Estimated Total Cost: </div>
+            <div>Project Total Cost: </div>
             <div><%= project.environment.softwareCost + project.environment.hardwareCost %></div>
     </section>
+
+    <h3>Project Comments</h3>
+<form  action="/projects/<%= project.id %>/comments" method="POST">
+  <label>Comment:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Add Comment">
+</form>
+<% if (project.comments.length) { %>
+  <!-- this is where we print a table of reviews -->
+  <section>
+  
+      <% project.comments.forEach(function(comment) { %>
+          <h6>Comment:</h6>
+          <label>Date</label>
+          <div><%= comment.creation.toLocaleDateString() %></div>
+          <label>Comment</label>
+          <div><%= comment.content %></div>      
+          <form action="/projects/<%=comment._id%>/comments?_method=DELETE" method="POST">
+            <button type="submit" class="btn white-text">Remove comment</button>
+          </form>
+  </section>
+      <% }); %>
+<% } else { %>
+  <h5>No Reviews Yet</h5>
+<% } %>
+
     <section>
         <h3>Consulting Services</h3>
         <p>This base analisys of your environment is just a basic sample of
