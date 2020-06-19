@@ -6,7 +6,7 @@ const Project = require('../models/project')
 
 
 router.get('/', function(req, res, next ) {
-  res.render('index', { title: 'Data Center Instructive' , user: req.user });
+  res.render('index', { title: 'Data Center Basics' , user: req.user });
 });
 //google oauth routes
 //first to start the authentication on the google side and indicate what to grab (profile and email)
