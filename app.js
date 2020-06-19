@@ -27,7 +27,7 @@ app.use(methodOverride('_method'));
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
-app.use(express.urlencoded( { extended: false}));
+app.use(express.urlencoded( { extended: true}));
 app.use(session({
     secret: 'NoSecretsAllowed!!',
     resave: false,
