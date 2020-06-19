@@ -5,7 +5,7 @@ const Project = require('../models/project')
 
 
 
-router.get('/', function(req, res, next ) {
+router.get('/', function(req, res ) {
   res.render('index', { title: 'Data Center Basics' , user: req.user });
 });
 //google oauth routes
