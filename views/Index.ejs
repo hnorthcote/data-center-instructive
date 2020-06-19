@@ -1,27 +1,58 @@
 <%- include('./partials/header') %>
-    <section class = "">
-<div class="intro"><p> To start a new IT project, any organization needs guidance to understand the components needed, the options available and the costs associated.
-    One big hurdle is that there is many variables that will change this elements. This website will allow you to have a basic understanding of your project software, hardware and cost, with only 2 main variables:
-    Size of the project and the type of market vertical this project is being designed for.</p></div>
-<div class = "software">
-<h3>SOFTWARE</h3>
-<P>The right software is fundamental for the allocation of tasks with in the operation, every type of business requires a different variation of software pakcages.
-    With our experience for over 15 years in this realm, we will be able to give you a good basic set of software packages to allow your operations to run smoothly</P></div>
+    <section class = "blue lighten-3">
+<div class = "container grey lighten-2 frame">
+<p class="flow-text"> This website is designed to allow any person to understand the basic requirements to start a new data center based project.
+  Here we will talk about 3 main elements and with a few pieces of information we can give you a birds eye view of what will be needed.
+</p>
+</div>
 
-<div class="hardware">
-<p>The hardware resources are key in the proper deployment of the software for the users and customers, this hardware needs to allow the scalability that is meant for your operation.
-    With the understanding of the intensity of the processes that are required by your operation, we will be able to recommend the right amount of server and clients to run smoothly.</p></div>
+<div class="container">
+<div class="row flexbox" > 
+ <div class="col s4" >
+    <div class = "card grey lighten-3">
+        <div class="card-content">
+            <div class="card grey lighten-3">
+<h3 class="card-title cardHeader">SOFTWARE</h3>
+<P class="flow-text">The right software is fundamental for the allocation of tasks with in the operation, every type of business requires a different variation of software pakcages.
+    With our experience for over 15 years in this realm, we will be able to give you a good basic set of software packages to allow your operations to run smoothly</P>
+</div></div></div></div>
 
-<div class="cost">
-<p>Cost is possibly the most important part of any project for any operation. With our understanding of the current market prices for licensing and hardware purchasing, we will be able to 
-    give you an accurate result of the cost scope of this project to get where you want to go.</p></div>
-    </section>
+
+        <div class="col s4" >
+           <div class = "card grey lighten-3">
+               <div class="card-content">
+                 <div class="card grey lighten-3">
+<h3 class="card-title cardHeader">HARDWARE</h3>
+<p class="flow-text">The hardware resources are key in the proper deployment of the software for the users and customers, this hardware needs to allow the scalability that is meant for your operation.
+    With the understanding of the intensity of the processes that are required by your operation, we will be able to recommend the right amount of server and clients to run smoothly.</p>
+</div></div></div></div>
+
+        <div class="col s4" >
+           <div class = "card grey lighten-3">
+               <div class="card-content">
+                    <div class="card grey lighten-3">
+<h3 class="card-title cardHeader">COST</h3>
+<p class="flow-text">Cost is possibly the most important part of any project for any operation. With our understanding of the current market prices for licensing and hardware purchasing, we will be able to 
+    give you an accurate result of the cost scope of this project to get where you want to go.</p>
+</div></div></div></div></div></div>
+ </section>
                 
-<h4>Great! But how do I get all this figured out?
+<h5>Great! But how do I get all this figured out?
     With this app we will give you the results in seconds by just answering a few questions about your project.
-    Please fill in this form to start the process.</h4>
+    Please fill in this form to start the process.</h5>
 
-    <h3 class="customer form">Let's get started!!</h3>
+
+<ul class="center">
+    <h4 class="customer form">Let's get started!!</h4>
+    
+  <li>
+    <% if (user) { %>
+      <a class="btn-large waves-light blue white-text hoverable" href="/logout"></a>
+    <% } else { %>
+      <a href="/auth/google" > <img src="/web/2x/btn_google_signin_dark_normal_web@2x.png"></a>
+    <% } %>
+    </li>
+  </ul>
 
 
 

@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
+<div class = 'row'> <div class="col s25 l10">
 
-<div><h2>Project details</h2>
 
+<section class="section container" >
+    <h2>Project details</h2>
     <form action="/projects/create" method="POST">
         <label>Company name:</label>
         <input  type="text" name="company">
@@ -10,20 +12,20 @@
         <label>Total amount of users:</label>
         <input type="number" name="userCount">
         <div class ="input-filed col s12">
-        <label>Business type:</label>
+        <label >Business type:</label>
         <select name="environment">
-            <option value="" disabled selected>Choose and option:</option>
+            <option value="" disabled selected>Click and choose an option</option>
             <option value="retail">Retail</option>
             <option value="medical">Medical</option>
             <option value="legal">Legal</option>
             <option value="education">Education</option>
             <option value="government">Government</option>
         </select></div>
-        <label>Project deadline:</label>
-        <input type="date" name="deadline">
-        <input type="submit" value="Create project">
+        <label for ="date">Project deadline (click below):</label>
+        <input type="text" id="date" class="datepicker" name="deadline" >
+        <input class="btn-small waves-light blue white-text hoverable"  type="submit" value="Create project">
     </form>
-    
+    </section></div>  </div>
 </div>
 
 
