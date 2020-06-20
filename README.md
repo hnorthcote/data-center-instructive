@@ -14,15 +14,19 @@ Then also we will take in consideration some basic information about the scale o
 ## Results
 
 Index:
-![](RMimages/first.png)
+
+<img src="RMimages/first.png">
 
 Login:
+
 ![](RMimages/login.png)
 
 New:
+
 ![](RMimages/new.png)
 
 Show:
+
 ![](RMimages/show.png)
 
 
