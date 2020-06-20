@@ -74,6 +74,9 @@ To start enter your project and company information.
 Add comments to the project page to know more about your needs.
 Feel free to contact me via LinkedIn from the link on the site.
 
+[Link to landing page](https://data-center-basics.herokuapp.com/)
+
+
 # Next steps
 
 Allow users to have multiple projects and manage them on a dashboard.
