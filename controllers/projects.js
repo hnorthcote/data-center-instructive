@@ -60,7 +60,7 @@ req.body.environment = environment._id
       user: req.user, 
       title: 'New Project' });
   }
-    console.log('created project!');res.redirect('/projects/new');})
+    console.log('created project!');res.redirect('/projects/show');})
   }
 
 
