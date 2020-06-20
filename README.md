@@ -15,19 +15,19 @@ Then also we will take in consideration some basic information about the scale o
 
 Index:
 
-<img src="RMimages/first.png">
+<img src="images/first.PNG">
 
 Login:
 
-![](RMimages/login.png)
+![](images/login.PNG)
 
 New:
 
-![](RMimages/new.png)
+![](images/new.PNG)
 
 Show:
 
-![](RMimages/show.png)
+![](RMimages/show.PNG)
 
 
 The result of the query will be 3 main parts, the software that is recommended for this vertical. If the company is a large health organization, then using Epic or Cerner will be a must, or retail will need a back end CRM system. 
